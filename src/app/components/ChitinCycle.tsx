@@ -208,7 +208,7 @@ export function ChitinCycle() {
         }
       `}</style>
 
-      <section id="cycle" className="chitin-cycle py-24 bg-[#FFF8F0]">
+      <section id="cycle" className="chitin-cycle py-24 bg-[#FFF8F0]" style={{ position: 'relative' }}>
         <div className="max-w-[1440px] mx-auto px-8">
           <div className="chitin-divider"></div>
 

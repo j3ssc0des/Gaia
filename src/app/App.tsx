@@ -3,6 +3,7 @@ import { motion, useInView } from 'motion/react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { MaterialInnovation } from './components/MaterialInnovation';
 import { ChitinCycle } from './components/ChitinCycle';
+import { HeroGamification } from './components/HeroGamification';
 import exampleImage from 'figma:asset/20ad5720398e7a9f47e9f82dea5eb01257f7ef64.png';
 import aquaCeleryCharm from 'figma:asset/5b15dd2f3600cbb8c6c23fe6d3687d00187dd70e.png';
 import coralPeriwinkleCharm from 'figma:asset/d7b8abdb112ef9e059d954cc975391bb504949a4.png';
@@ -14,7 +15,7 @@ import { ProductCard } from './components/ProductCard';
 import gaiaLogo from 'figma:asset/449682b8382400bb7c6a592b4c61f2e88ffa318a.png';
 import circularEconomyImage from 'figma:asset/f02bd5cffd4200260d3fbbca7d9f12eee0ff47d2.png';
 import closedBoxImg from 'figma:asset/cb08f40b1985bab889f270d535b4c710fdfacc22.png';
-import unboxingHandsImg from 'figma:asset/05e9f8d7bf5f3ab7dccb38cebc0a44b8a2f7c092.png';
+import unboxingHandsImg from 'figma:asset/149cf352ac3223a7b2d8f5cc703a4f7c5ab18404.png';
 import plantedPotImg from 'figma:asset/2e86142a8ec9968a97b49e728e3fdbcd60ac6839.png';
 
 // Animated Counter Component
@@ -68,14 +69,14 @@ function FadeUpSection({ children, className = '' }: { children: React.ReactNode
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FFF8F0] text-[#2D5016]">
+    <div className="min-h-screen bg-[#FFF8F0] text-[#2D5016]" style={{ position: 'relative' }}>
       {/* Sticky Navigation */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="sticky top-0 z-50 px-8 py-6 backdrop-blur-md bg-[#FFF8F0]/80"
-        style={{ borderBottom: '1px solid rgba(45, 80, 22, 0.1)' }}
+        style={{ borderBottom: '1px solid rgba(45, 80, 22, 0.1)', position: 'sticky' }}
       >
         <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <div className="flex items-center">
@@ -99,7 +100,7 @@ export default function App() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#2D5016] text-[#FFF8F0] px-8 h-14 rounded-full hover:shadow-lg transition-shadow"
-            style={{ fontFamily: 'var(--font-body)' }}
+            style={{ fontFamily: 'var(--font-body)', position: 'relative' }}
             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Join Waitlist
@@ -107,42 +108,8 @@ export default function App() {
         </div>
       </motion.nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#74B3E6]/20 to-[#DBE098]/20" />
-        <div className="max-w-[1440px] mx-auto px-8 py-24 md:py-32 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1
-                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
-                className="text-6xl md:text-7xl font-bold leading-tight mb-6"
-              >
-                Born from the sea. Grown in the garden.
-              </h1>
-              <p style={{ fontFamily: 'var(--font-body)' }} className="text-xl opacity-80">
-                Luxury bag charms crafted from shrimp-waste chitosan. Beautiful by design, biodegradable by nature.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FFA182]/30 to-[#F3E7A1]/30 rounded-full blur-3xl" />
-              <img
-                src={exampleImage}
-                alt="GAIA Charm"
-                className="relative z-10 w-full h-[500px] object-cover rounded-3xl"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with Gamification UI */}
+      <HeroGamification />
 
       {/* Stat Bar */}
       <FadeUpSection className="border-y border-[#2D5016]/10 bg-white/40">
@@ -189,13 +156,14 @@ export default function App() {
         <div className="max-w-[1440px] mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeUpSection>
-              <div className="relative rounded-full overflow-hidden aspect-square shadow-xl max-w-md mx-auto ring-8 ring-[#2D5016]/10 flex items-center justify-center">
+              <div className="relative rounded-full overflow-hidden aspect-square shadow-xl max-w-md mx-auto ring-8 ring-[#2D5016]/10 flex items-center justify-center" style={{ position: 'relative' }}>
                 <motion.img 
                   animate={{ rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                   src={circularEconomyImage} 
                   alt="Circular Economy" 
                   className="w-full h-full max-w-none object-cover origin-center scale-110" 
+                  style={{ position: 'relative' }}
                 />
               </div>
             </FadeUpSection>
@@ -324,7 +292,7 @@ export default function App() {
       </FadeUpSection>
 
       {/* Waitlist CTA */}
-      <section id="waitlist" className="py-32 relative overflow-hidden">
+      <section id="waitlist" className="py-32 relative overflow-clip" style={{ position: 'relative' }}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFA182] to-[#A1ACE2]" />
         <div className="max-w-[800px] mx-auto px-8 text-center relative z-10">
           <FadeUpSection>
@@ -346,7 +314,7 @@ export default function App() {
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 className="bg-[#2D5016] text-[#FFF8F0] px-8 h-14 rounded-full hover:shadow-xl transition-shadow whitespace-nowrap"
-                style={{ fontFamily: 'var(--font-body)' }}
+                style={{ fontFamily: 'var(--font-body)', position: 'relative' }}
               >
                 Join Waitlist
               </motion.button>

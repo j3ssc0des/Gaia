@@ -34,11 +34,12 @@ export function ProductCard({ name, gradient, imageUrl, imageStyle }: { name: st
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
+        position: 'relative',
         transformStyle: 'preserve-3d',
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: 'transform 0.1s ease-out',
       }}
-      className="rounded-3xl overflow-hidden shadow-lg cursor-pointer"
+      className="rounded-3xl overflow-clip shadow-lg cursor-pointer"
     >
       <div className={`h-[400px] p-8 flex flex-col justify-between ${gradient}`}>
         <div className="flex-1 flex items-center justify-center relative">

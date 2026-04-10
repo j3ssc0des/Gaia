@@ -14,12 +14,12 @@ export function MaterialInnovation() {
   return (
     <section 
       ref={containerRef} 
-      className="relative h-[80vh] min-h-[600px] overflow-hidden bg-[#FFF8F0] flex items-center justify-center"
+      className="relative h-[80vh] min-h-[600px] overflow-clip bg-[#FFF8F0] flex items-center justify-center"
       style={{ position: 'relative' }}
     >
       {/* Textured Material Background with Parallax */}
       <motion.div 
-        style={{ y }} 
+        style={{ y, position: 'absolute' }} 
         className="absolute inset-0 z-0 w-full h-[140%] -top-[20%]"
       >
         <ImageWithFallback
