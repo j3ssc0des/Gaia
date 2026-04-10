@@ -1,0 +1,34 @@
+{
+  "name": "AI Tools Course",
+  "image": "ghcr.io/calvinw/ai-course-devcontainer:latest",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "containerEnv": {
+    "CLAUDE_CODE_DISABLE_VSCODE_EXTENSION": "1",
+    "IS_SANDBOX": "1"
+  },
+  "secrets": {
+    "STITCH_API_KEY": {
+      "description": "API key for the Stitch MCP server. Generate at https://stitch.withgoogle.com (Settings → API Keys).",
+      "documentationUrl": "https://stitch.withgoogle.com/docs/mcp/setup"
+    }
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": []
+    },
+    "vscode": {
+      "extensions": [
+        "analytic-signal.preview-pdf"
+      ],
+      "settings": {
+        "extensions.allowed": {
+          "anthropic.claude-code": false,
+          "*": true
+        },
+        "chat.agent.enabled": false,
+        "terminal.integrated.copyOnSelection": true,
+        "terminal.integrated.rightClickBehavior": "paste"
+      }
+    }
+  }
+}
